@@ -1,0 +1,18 @@
+<div class="card shadow m-4" style="width: 18rem; min-height: 55rem">
+    @if (movie.image) {
+    <img [src]="'http://localhost:8080/movies/' + movie.id + '/image'" class="card-img-top" alt="">
+    }
+    <div class="card-body">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <p class="card-text">{{ movie.synopsis }}</p>
+        <ng-container *ngIf="review">
+            <label class="d-block text-warning fw-bold mb-1">
+                ★ Note donnée : {{ review.rate }}
+            </label>
+            <p class="fst-italic text-muted mb-1">"{{ review.text }}"</p>
+            <p class="text-secondary mb-0">
+                <small>Posté le {{ review.reviewDate | date:'dd/MM/yyyy' }}</small>
+            </p>
+        </ng-container>
+    </div>
+</div>

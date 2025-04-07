@@ -1,0 +1,39 @@
+<div class="container-mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3;">
+        <h2 class="mb-0">Liste des films</h2>
+        <button type="button" class="btn btn-dark" routerLink="/add-movie">
+            Nouveau film
+        </button>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Titre</th>
+                <th>Date de sortie</th>
+                <th>Réalisateur</th>
+                <th>Note</th>
+                <th>Synopsis</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of movies$ | async; trackBy: trackByMovieId">
+                <td>{{ movie.id }}</td>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.releaseDate | date: 'dd/MM/yy' }}</td>
+                <td>{{ movie.director }}</td>
+                <td>{{ movie.rate }}</td>
+                <td>{{ movie.synopsis }}</td>
+                <td>
+                    <i class="bi bi-trash me-2 text-danger" role="button" title="Supprimer"
+                        (click)="deleteMovie(movie.id!)"></i>
+                    <i class="bi bi-pencil me-2 text-primary" role="button" title="Éditer"
+                        (click)="updateMovie(movie.id!)"></i>
+                    <i class="bi bi-camera text-secondary" role="button" title="Ajouter une image"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

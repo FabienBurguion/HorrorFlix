@@ -1,0 +1,37 @@
+<div class="container-mt-4">
+    <div class="d-flex justify-content-start align-items-center mb-3">
+        <h2 class="mb-0">Les avis</h2>
+        <button class="btn btn-warning ms-3" routerLink="/user-page">Retour</button>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Note</th>
+                <th>Texte</th>
+                <th>Email utilisateur</th>
+                <th>Titre film</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let review of review$ | async; trackBy: trackByReviewId">
+                <td>{{ review.id }}</td>
+                <td>{{ review.rate }}</td>
+                <td>{{ review.text }}</td>
+                <td>{{ review.user.email }}</td>
+                <td>{{ review.movie.title }}</td>
+                <td>{{ review.reviewDate | date: 'dd/MM/yy' }}</td>
+                <td>
+                    <i class="bi bi-trash me-2 text-danger" role="button" title="Supprimer"
+                        (click)="deleteReview(review.id!)"></i>
+                    <i class="bi bi-pencil me-2 text-primary" role="button" title="Éditer"
+                        (click)="updateReview(review.id!)"></i>
+                    <i class="bi bi-camera text-secondary" role="button" title="Ajouter une image"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

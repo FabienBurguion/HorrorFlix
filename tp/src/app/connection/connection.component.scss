@@ -1,0 +1,11 @@
+.container-mt-4 {
+    padding: 120px;
+}
+
+.custom-snackbar {
+    position: fixed !important;
+    top: 20px !important;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Centrer le snackBar horizontalement */
+}

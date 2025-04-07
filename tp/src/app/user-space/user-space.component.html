@@ -1,0 +1,51 @@
+<div class="container-mt-4">
+
+    <h3>Mon profil</h3>
+
+    <div>
+        <div class="d-flex gap-2 mb-3">
+            <button class="btn btn-warning" (click)="addReview()">
+                Nouvel avis
+            </button>
+            <button class="btn btn-outline-secondary hover-yellow" (click)="editMyReviews()">
+                Modifier mes avis
+            </button>
+            <button class="btn btn-secondary" (click)="editMyInfos()">
+                Modifier mes infos
+            </button>
+            <button class="btn btn-danger" (click)="logout()">
+                Déconnexion
+            </button>
+        </div>
+
+        <div class="border p-4 rounded bg-light shadow-sm">
+            <h5 class="mb-3">Mes infos :</h5>
+
+            <p>
+                <strong>Nom :</strong> {{ user.lastName }}
+                <strong>Prénom :</strong> {{ user.firstName }}
+            </p>
+
+            <p>
+                <strong>Age :</strong> {{ user.age }}
+                <strong>Email :</strong> {{ user.email }}
+            </p>
+
+            <p><strong>Points fidélités :</strong> {{ user.points }}</p>
+        </div>
+    </div>
+    <div class="mt-5">
+
+        <ng-container *ngIf="reviews$ | async as reviewed; else loading">
+            <div class="d-flex flex-wrap gap-4 justify-content-start">
+                <ng-container *ngFor="let item of reviewed; trackBy: trackByMovieId">
+                    <app-movie [movie]="item.movie" [review]="item.review"></app-movie>
+                </ng-container>
+            </div>
+        </ng-container>
+
+        <ng-template #loading>
+            <p>Chargement des films notés...</p>
+        </ng-template>
+    </div>
+</div>

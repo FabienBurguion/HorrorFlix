@@ -1,0 +1,25 @@
+<div class="charts-container" style="margin: 20px;">
+    @if (!isLoading && !error) {
+    <div class="chart-container"
+        style="position: relative; height:400px; width:800px; margin: 20px auto; border: 1px solid #eee; padding: 10px;">
+        <canvas #NoteParFilmChart></canvas>
+    </div>
+    }
+    @if (!isLoading && !error) {
+    <div class="chart-container"
+        style="position: relative; height:450px; width:800px; margin: 20px auto; border: 1px solid #eee; padding: 10px;">
+        <div style="margin-bottom: 10px;">
+            <select (change)="onYearChange($event)" style="padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="2021" [selected]="selectedYear === 2021">2021</option>
+                <option value="2022" [selected]="selectedYear === 2022">2022</option>
+                <option value="2023" [selected]="selectedYear === 2023">2023</option>
+                <option value="2024" [selected]="selectedYear === 2024">2024</option>
+                <option value="2025" [selected]="selectedYear === 2025">2025</option>
+            </select>
+        </div>
+        <canvas #NbreAvisParAnneeChart></canvas>
+    </div>
+
+
+    }
+</div>

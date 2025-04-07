@@ -1,0 +1,33 @@
+<div class="container-mt-4">
+    <h1 class="text-center">{{ movie.id ? 'Modifier un film' : 'Ajouter un film' }}</h1>
+
+    <form class="container w-50 p-4 shadow-lg rounded bg-light">
+
+        <div class="mb-3">
+            <label for="title" class="form-label fw-bold">Titre</label>
+            <input type="text" id="title" name="title" class="form-control" [(ngModel)]="movie.title" />
+        </div>
+
+        <div class="mb-3">
+            <label for="director" class="form-label fw-bold">Directeur</label>
+            <input type="text" id="director" name="director" class="form-control" [(ngModel)]="movie.director" />
+        </div>
+
+        <div class="mb-3">
+            <label for="releaseDate" class="form-label fw-bold">Date de sortie</label>
+            <input type="date" id="releaseDate" name="releaseDate" class="form-control"
+                [ngModel]="movie.releaseDate | date:'yyyy-MM-dd'" (ngModelChange)="movie.releaseDate = $event" />
+        </div>
+
+        <div class="mb-3">
+            <label for="synopsis" class="form-label fw-bold">Synopsis</label>
+            <textarea id="synopsis" name="synopsis" class="form-control" [(ngModel)]="movie.synopsis" rows="6"
+                class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-warning" (click)="submitMovie()">
+            {{ movie.id ? 'Modifier' : 'Ajouter' }}
+        </button>
+
+    </form>
+</div>

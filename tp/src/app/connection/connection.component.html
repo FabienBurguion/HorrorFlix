@@ -1,0 +1,23 @@
+<div class="container-mt-4">
+    <h3 class="text-center">Connecte-toi !</h3>
+    <h6 class="text-center">
+        <i>En 1 clic.</i>
+    </h6>
+
+    <div class="mb-3 mx-auto" style="width: 25%;">
+        <label for="email" class="form-label fw-bold">Email</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+            [(ngModel)]="email" />
+    </div>
+
+    <div style="text-align: center;">
+        <button class="btn btn-warning" (click)="login()" [disabled]="!email">
+            Se connecter
+        </button>
+    </div>
+
+    <div class="text-center mt-3">
+        <span>Pas de compte ? </span>
+        <a href="/add-user" class="text-warning text-decoration-none">Inscris-toi !</a>
+    </div>
+</div>

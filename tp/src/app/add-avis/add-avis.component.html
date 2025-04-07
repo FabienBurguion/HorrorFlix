@@ -1,0 +1,32 @@
+<div class="container-mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">{{ isEditMode ? 'Modification avis' : 'Nouvel avis' }}</h2>
+        <button class="btn btn-secondary" (click)="goToMyReviews()">Mes avis</button>
+    </div>
+
+    <div class="mb-3">
+        <label for="rate" class="form-label">Note</label>
+        <select id="rate" class="form-select" [(ngModel)]="review.rate" name="rate">
+            <option *ngFor="let note of [0, 1, 2, 3, 4, 5]" [value]="note">{{ note }}</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="text" class="form-label">Texte</label>
+        <textarea id="text" class="form-control" rows="3" [(ngModel)]="review.text" name="text"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="movie" class="form-label">Film à noter</label>
+        <select id="movie" class="form-select" [(ngModel)]="selectedMovieId" name="movie">
+            <option [value]="null" disabled selected>-- Sélectionnez un film --</option>
+            <option *ngFor="let movie of movies" [value]="movie.id">
+                {{ movie.title }}
+            </option>
+        </select>
+    </div>
+
+    <button type="button" class="btn btn-warning" (click)="submitReview()">
+        {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+    </button>
+</div>

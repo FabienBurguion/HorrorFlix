@@ -1,0 +1,38 @@
+<div class="container-mt-4">
+    <h3 class="text-center" *ngIf="!isEditMode">Passionné(e) de cinéma?</h3>
+    <h3 class="text-center" *ngIf="!isEditMode">Inscris-toi !</h3>
+    <h6 class="text-center" *ngIf="!isEditMode">
+        <i> Et rejoins une vraie communauté. </i>
+    </h6>
+    <h3 class="text-center" *ngIf="isEditMode">Modification utilisateur</h3>
+
+    <form class="container w-50 p-4 shadow-lg rounded bg-light">
+
+        <div class="mb-3">
+            <label for="prénom" class="form-label fw-bold">Prénom</label>
+            <input type="text" id="prénom" name="prénom" class="form-control" [(ngModel)]="user.firstName" />
+        </div>
+
+        <div class="mb-3">
+            <label for="nom" class="form-label fw-bold">Nom de famille</label>
+            <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="user.lastName" />
+        </div>
+
+        <div class="mb-3">
+            <label for="age" class="form-label fw-bold">Age</label>
+            <input type="text" id="age" name="age" class="form-control" [(ngModel)]="user.age" />
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Email</label>
+            <input type="email" id="email" name="email" class="form-control" [(ngModel)]="user.email" />
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn btn-warning" (click)="addUser()">
+                {{ isEditMode ? 'Valider' : "M'inscrire" }}
+            </button>
+        </div>
+
+    </form>
+</div>

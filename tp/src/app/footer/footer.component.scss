@@ -1,0 +1,85 @@
+.halloween-footer {
+    background-color: #050505;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.halloween-footer .pumpkin {
+    position: absolute;
+    animation: float 5s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.pumpkin1 {
+    top: -10px;
+    left: 10%;
+    width: 50px;
+    z-index: 1;
+    animation-delay: 0s;
+}
+
+.pumpkin2 {
+    top: 20px;
+    left: 40%;
+    width: 50px;
+    z-index: 1;
+    animation-delay: 1s;
+}
+
+.pumpkin3 {
+    top: -20px;
+    left: 70%;
+    width: 50px;
+    z-index: 1;
+    animation-delay: 2s;
+}
+
+.pumpkin4 {
+    bottom: 0;
+    left: 25%;
+    width: 80px;
+    z-index: 0;
+    /* derrière le contenu */
+    animation-delay: 0.5s;
+}
+
+.pumpkin5 {
+    bottom: -10px;
+    left: 60%;
+    width: 90px;
+    z-index: 0;
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    /* le texte passe au-dessus des citrouilles basses */
+}
+
+.footer-links a {
+    margin: 0 1rem;
+    color: #ff7518;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

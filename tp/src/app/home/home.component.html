@@ -1,0 +1,24 @@
+<div class="home-background">
+    <main>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="../../assets/Horror on Halloween.png" alt="Home image" class="img-fluid mb-4"
+                style="display: block; margin: 0 auto; width: 80%;" />
+        </div>
+        <div class="carousel-container">
+            <h2>Les plus trendy</h2>
+
+            <div class="carousel-wrapper">
+                <button class="carousel-btn left" (click)="scrollCarousel('left')">&#10096;</button>
+
+                <!-- Carrousel des films -->
+                <div #carousel class="carousel">
+                    @for (movie of movies$ | async; track movie.id) {
+                    <app-movie [movie]="movie"></app-movie>
+                    }
+                </div>
+
+                <button class="carousel-btn right" (click)="scrollCarousel('right')">&#10097;</button>
+            </div>
+        </div>
+    </main>
+</div>
